@@ -54,7 +54,7 @@ class Dialogue_Agent():
         self.open_kitchen=list(file['open kitchen'])
         self.hygiene=list(file['hygiene'])
         self.suggestions=[]
-        self.delay=0
+        self.delay=1
         self.responses_formal={"Welcome": 
             ["Hello! I can recommend restaurants to you. To start, please enter your request. You can ask for restaurants by area, price range, or food type\n",
              "Hello and welcome to our restaurant system. You can ask for restaurants by area, price range, or food type. To start, please enter your request\n",

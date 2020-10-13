@@ -44,7 +44,7 @@ class Classification():
         """
         self.open_dataset(filename)
         self.split_dataset(self.X,self.y)
-        self.bag_of_words()
+        self.bag_of_words_whole_dataset()
        
     
     #%%
@@ -120,7 +120,14 @@ class Classification():
         self.vectorizer = CountVectorizer()
         self.X_train_vectorized = self.vectorizer.fit_transform(self.X_train)
         self.X_test_vectorized=self.vectorizer.transform(self.X_test)
-        
+    def bag_of_words_whole_dataset(self):
+      """
+      vectorize training set and test set to create bag of words representation
+
+      """
+      print("creating bag of words representation...")
+      self.vectorizer = CountVectorizer()
+      self.X_vectorized = self.vectorizer.fit_transform(self.X)
         
 #%%
     #plot confusion matrix and print label counts
@@ -258,7 +265,7 @@ class Classification():
         print('Training LR classifier...')
         
         self.clf = LogisticRegression(random_state=0, max_iter=400)
-        self.clf.fit(self.X_train_vectorized, np.ravel(np.reshape(self.y_train,(-1,1))))
+        self.clf.fit(self.X_vectorized, np.ravel(np.reshape(self.y,(-1,1))))
         
     
 #%%
